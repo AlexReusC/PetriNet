@@ -34,4 +34,21 @@ defmodule RedpetriTest do
     assert ListAd.enablement(ListAd.getList, [P1, P2]) == MapSet.new([B, C, D])
   end
 
+  test "Pairs replay 1" do
+    assert Pairs.replay(Pairs.getNetCiclo, [P0], "log1.txt") == [true, true, true, true, true, false, false, false, true, false]
+  end
+
+  test "ListAd replay 1" do
+    assert ListAd.replay(ListAd.getListCiclo, [P0], "log1.txt") == [true, true, true, true, true, false, false, false, true, false]
+  end
+
+  test "Pairs replay 2" do
+    assert Pairs.replay(Pairs.getNet, [P0], "log2.txt") == [false, true, true, false, false]
+  end
+
+  test "ListAd replay 2" do
+    assert ListAd.replay(ListAd.getList, [P0], "log2.txt") == [false, true, true, false, false]
+  end
+
+
 end

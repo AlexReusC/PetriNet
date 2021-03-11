@@ -12,6 +12,9 @@ quiere ir que es un átomo. E.g. Pairs.fire(Pairs.getNet, [P0], A)
 La función Pairs.enablement recibe la red y el marcado en lista. E.g.
 Pairs.enablement(Pairs.getNet, [P1, P2])
 
+La función Pairs.replay recible la red, el marcado inicial y el nombre del archivo.
+E.g. Pairs.replay(Pairs.getNet, [P0], "log1.txt")
+
 
 ## ListAd
 
@@ -22,4 +25,4 @@ La funcion ListAd.fire recibe los parametros igual a la de Pairs con la particul
 que recibe otro tipo de red. E.g. ListAd.fire(ListAd.getList, [P0], A)
 
 La función ListAd.enablement recibe la red y el marcado en lista. E.g.
-ListAd.enablement(ListAd.getList, [P1, P2]) 
+ListAd.enablement(ListAd.getList, [P1, P2])

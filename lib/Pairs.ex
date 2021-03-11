@@ -22,22 +22,23 @@ defmodule Pairs do
     mark |> Enum.map(fn x -> postSet(net, x) |> MapSet.to_list end) |> List.flatten
     |> Enum.filter(fn x -> MapSet.subset?(preSet(net,x), MapSet.new(mark)) end) |> MapSet.new()
   end
-  
-  # def traversal(_net, _mark, []), do: true
-  # def traversal(net, mark, [head | tail]) do
-  #   if(fire(net, mark, ("Elixir."<> head |> String.to_atom )) == MapSet.new(mark)) do
-  #     false
-  #   else
-  #     traversal(net, fire(net, mark, ("Elixir."<> head |> String.to_atom )), tail)
-  #   end
-  #
-  # end
-  #
-  # def replay(net, mark, name) do
-  #   File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
-  #   Enum.map(fn line -> traversal(net, mark, line) end)
-  # end
-  #
+
+  def traversal(_net, _mark, []), do: true
+  def traversal(net, mark, [head | tail]) do
+    if(fire(net, mark, ("Elixir."<> head |> String.to_atom )) == MapSet.new(mark)
+    or fire(net, mark, ("Elixir."<> head |> String.to_atom )) == mark) do
+      false
+    else
+      traversal(net, fire(net, mark, ("Elixir."<> head |> String.to_atom )), tail)
+    end
+
+  end
+
+  def replay(net, mark, name) do
+    File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
+    Enum.map(fn line -> traversal(net, mark, line) end)
+  end
+
   #
   # def reachability_graph(net, mark) do
   #   enablement(net, mark) |> MapSet.to_list
