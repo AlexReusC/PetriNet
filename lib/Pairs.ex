@@ -18,11 +18,11 @@ defmodule Pairs do
     end
   end
 
-  # def enablement(net, mark) do
-  #   mark |> Enum.map(fn x -> postSet(net, x) |> MapSet.to_list end) |> List.flatten
-  #   |> Enum.filter(fn x -> MapSet.subset?(preSet(net,x), MapSet.new(mark)) end) |> MapSet.new()
-  # end
-  #
+  def enablement(net, mark) do
+    mark |> Enum.map(fn x -> postSet(net, x) |> MapSet.to_list end) |> List.flatten
+    |> Enum.filter(fn x -> MapSet.subset?(preSet(net,x), MapSet.new(mark)) end) |> MapSet.new()
+  end
+  
   # def traversal(_net, _mark, []), do: true
   # def traversal(net, mark, [head | tail]) do
   #   if(fire(net, mark, ("Elixir."<> head |> String.to_atom )) == MapSet.new(mark)) do

@@ -30,11 +30,11 @@ defmodule ListAd do
     end
   end
 
-  # def enablement([preSet, postSet], mark) do
-  #   mark |> Enum.map(fn x -> pSet(postSet, x) |> MapSet.to_list end) |> List.flatten
-  #   |> Enum.filter(fn x -> MapSet.subset?(pSet(preSet, x), MapSet.new(mark)) end) |> MapSet.new()
-  # end
-  #
+  def enablement([preSet, postSet], mark) do
+    mark |> Enum.map(fn x -> pSet(postSet, x) |> MapSet.to_list end) |> List.flatten
+    |> Enum.filter(fn x -> MapSet.subset?(pSet(preSet, x), MapSet.new(mark)) end) |> MapSet.new()
+  end
+
   # def traversal(_net, _mark, []), do: true
   # def traversal(net, mark, [head | tail]) do
   #   if(fire(net, mark, ("Elixir."<> head |> String.to_atom )) == MapSet.new(mark)) do

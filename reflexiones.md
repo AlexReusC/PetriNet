@@ -40,6 +40,10 @@ quedaría:
 
 #Reflexión
 
+La función de fire fue muy parecida en los dos casos, lo unico que cambió fueron
+las operaciones de preset y poset: en los pares tenía que buscar a todos con Enum
+mientras que en la lista tenía que buscar con un traversal pero solo lo tenía que
+buscar una vez porque ahí estaban los presets o el poset.
 En mi caso fue más sencilla de utilizar la lista de pares porque aunque no
 se muestra tan claramente las operaciones de poset y preset como en la lista de
 de adyacencia, las operaciones de Enum hacen facil obtenerlas.
