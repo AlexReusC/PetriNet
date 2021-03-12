@@ -49,13 +49,21 @@ defmodule ListAd do
     File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
     Enum.map(fn line -> traversal(net, mark, line) end)
   end
-  #
-  # def reachability_graph(net, mark) do
-  #   enablement(net, mark)
-  #   |> MapSet.to_list
-  #   |> Enum.map(fn x -> fire(net, mark, x) |> MapSet.to_list end)
-  #   |> Enum.reduce([mark], fn x, acc -> acc ++ reachability_graph(net, x) end)
-  #   |> MapSet.new |> MapSet.to_list
-  # end
+
+  def reachability_graph_memory(net, mark, memory) do
+    if (MapSet.new(mark) |> MapSet.subset?(memory)) do
+      []
+    else
+      enablement(net, mark)
+      |> MapSet.to_list
+      |> Enum.map(fn x -> fire(net, mark, x) |> MapSet.to_list end)
+      |> Enum.reduce([mark], fn x, acc -> acc  ++ reachability_graph_memory(net, x, MapSet.union(memory, MapSet.new(mark)))   end)
+      |> MapSet.new |> MapSet.to_list
+    end
+  end
+
+  def reachability_graph(net, mark) do #(red, [P0])
+    reachability_graph_memory(net, mark, MapSet.new([]))
+  end
 
 end

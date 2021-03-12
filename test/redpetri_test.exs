@@ -50,5 +50,27 @@ defmodule RedpetriTest do
     assert ListAd.replay(ListAd.getList, [P0], "log2.txt") == [false, true, true, false, false]
   end
 
+  test "Pairs reachability_graph 1" do
+    assert Pairs.reachability_graph(Pairs.getNet, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3, P4], [P5]]
+  end
 
+  test "Pairs reachability_graph 2" do
+    assert Pairs.reachability_graph(Pairs.getNetCiclo, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3, P4], [P5]]
+  end
+
+  test "Pairs reachability_graph 3" do
+    assert Pairs.reachability_graph(Pairs.getTest, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3], [P3, P4], [P5]]
+  end
+
+  test "ListAd reachability_graph 1" do
+    assert ListAd.reachability_graph(ListAd.getList, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3, P4], [P5]]
+  end
+
+  test "ListAd reachability_graph 2" do
+    assert ListAd.reachability_graph(ListAd.getListCiclo, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3, P4], [P5]]
+  end
+
+  test "ListAd reachability_graph 3" do
+    assert ListAd.reachability_graph(ListAd.getListTest, [P0]) == [[P0], [P1, P2], [P1, P4], [P2, P3], [P3], [P3, P4], [P5]]
+  end
 end

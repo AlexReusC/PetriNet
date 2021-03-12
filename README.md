@@ -15,14 +15,22 @@ Pairs.enablement(Pairs.getNet, [P1, P2])
 La función Pairs.replay recible la red, el marcado inicial y el nombre del archivo.
 E.g. Pairs.replay(Pairs.getNet, [P0], "log1.txt")
 
+La función Pairs.reachability_graph recibe la red y el marcado inicial. E.g.
+Pairs.reachability_graph(Pairs.getNet, [P0])
 
 ## ListAd
 
 Para la red del primer ejercicio usar ListAd.getList, del tercero ListAd.getListCiclo,
-para el cuarto ejercicio Pairs.getListTest. Estas devuelven las listas de adyacencia.
+para el cuarto ejercicio ListAd.getListTest. Estas devuelven las listas de adyacencia.
 
 La funcion ListAd.fire recibe los parametros igual a la de Pairs con la particularidad
 que recibe otro tipo de red. E.g. ListAd.fire(ListAd.getList, [P0], A)
 
 La función ListAd.enablement recibe la red y el marcado en lista. E.g.
 ListAd.enablement(ListAd.getList, [P1, P2])
+
+La función ListAd.replay recible la red, el marcado inicial y el nombre del archivo.
+E.g. ListAd.replay(ListAd.getList, [P0], "log1.txt")
+
+La función ListAd.reachability_graph recibe la red y el marcado inicial. E.g.
+ListAd.reachability_graph(ListAd.getList, [P0])
