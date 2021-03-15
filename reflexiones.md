@@ -1,5 +1,5 @@
 Las dos estructuras de datos que use para este ejercicio fueron la lista de
-adyacencia y la lista de pares. Primero usé la lista de adyacencia porque se me hizo
+adyacencia y la lista de pares. Primero usé la lista de pares porque se me hizo
 lo más obvio y mi eleccipón de lista de adyacencia en vez de la matriz es porque
 quise usar otra de las estructuras que te da elixir (i.e. la tupla) y no me pareció
 natural usarlo en la matriz.

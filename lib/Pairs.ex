@@ -35,8 +35,11 @@ defmodule Pairs do
   end
 
   def replay(net, mark, name) do
-    File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
+    lista = File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
     Enum.map(fn line -> traversal(net, mark, line) end)
+    reejectuable = Enum.filter(lista, fn x -> x end) |> length
+    noreejectutable = Enum.filter(lista, fn x -> !x end) |> length
+    %{"reejectuable" => reejectuable, "no-reejectuable" => noreejectutable}
   end
 
 
@@ -52,7 +55,7 @@ defmodule Pairs do
     end
   end
 
-  def reachability_graph(net, mark) do 
+  def reachability_graph(net, mark) do
     reachability_graph_memory(net, mark, MapSet.new([]))
   end
 

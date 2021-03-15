@@ -46,8 +46,11 @@ defmodule ListAd do
   end
 
   def replay(net, mark, name) do
-    File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
+    lista = File.read!(name) |> String.split |> Enum.map(fn line -> String.split(line, ",") end) |>
     Enum.map(fn line -> traversal(net, mark, line) end)
+    reejectuable = Enum.filter(lista, fn x -> x end) |> length
+    noreejectutable = Enum.filter(lista, fn x -> !x end) |> length
+    %{"reejectuable" => reejectuable, "no-reejectuable" => noreejectutable}
   end
 
   def reachability_graph_memory(net, mark, memory) do

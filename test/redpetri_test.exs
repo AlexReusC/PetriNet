@@ -35,19 +35,19 @@ defmodule RedpetriTest do
   end
 
   test "Pairs replay 1" do
-    assert Pairs.replay(Pairs.getNetCiclo, [P0], "log1.txt") == [true, true, true, true, true, false, false, false, true, false]
+    assert Pairs.replay(Pairs.getNetCiclo, [P0], "log1.txt") == %{"no-reejectuable" => 4, "reejectuable" => 6}
   end
 
   test "ListAd replay 1" do
-    assert ListAd.replay(ListAd.getListCiclo, [P0], "log1.txt") == [true, true, true, true, true, false, false, false, true, false]
+    assert ListAd.replay(ListAd.getListCiclo, [P0], "log1.txt") == %{"no-reejectuable" => 4, "reejectuable" => 6}
   end
 
   test "Pairs replay 2" do
-    assert Pairs.replay(Pairs.getNet, [P0], "log2.txt") == [false, true, true, false, false]
+    assert Pairs.replay(Pairs.getNet, [P0], "log2.txt") == %{"no-reejectuable" => 3, "reejectuable" => 2}
   end
 
   test "ListAd replay 2" do
-    assert ListAd.replay(ListAd.getList, [P0], "log2.txt") == [false, true, true, false, false]
+    assert ListAd.replay(ListAd.getList, [P0], "log2.txt") == %{"no-reejectuable" => 3, "reejectuable" => 2}
   end
 
   test "Pairs reachability_graph 1" do
